@@ -1,6 +1,6 @@
 {config, ...}: {
   az.svc.knot = {
-    primaryPubkey = "uYFs8O9jjXUBuwH4MXN4mSxnc22nVsysB42lUBYGWuE=";
+    primaryPubkey = "cdWcAXlvEPBvMa1QmLOXz/THBhmnYs25rzZ2GiLGuvQ=";
     # TODO: primaryAddr = "::1";
     primaryAddr = "127.0.0.1";
     primaryPort = 8853;
