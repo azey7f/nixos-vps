@@ -25,6 +25,6 @@ with lib; {
     knot.enable = true;
     unbound.enable = true;
     #rathole.enable = true; # for some reason I couldn't get rathole to work in K8s, always crashed when trying to start the config watcher
-    #frp.enable = true; # enabled per-host
+    frp.enable = true;
   };
 }
