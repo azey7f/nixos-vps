@@ -1,6 +1,14 @@
 {lib, ...}:
 with lib; {
+  users.users.root.hashedPassword = "*"; # needed for SSH login without PAM
+
   az.core = {
+    hardening = {
+      allowKexec = true; # installer shenanigans
+      malloc = "graphene-hardened"; # VPSes have plenty of perf for proxying
+      forcePTI = true;
+    };
+
     firmware.enable = false;
     boot.loader.systemd-boot.enable = mkDefault true;
 
@@ -17,9 +25,11 @@ with lib; {
   };
 
   az.svc = {
-    ssh.enable = mkDefault true;
-    ssh.openFirewall = mkDefault true;
-    ssh.ports = mkDefault [31832];
+    ssh = {
+      enable = mkDefault true;
+      openFirewall = mkDefault true;
+      ports = mkDefault [31832];
+    };
     endlessh.enable = mkDefault true;
 
     knot.enable = true;
