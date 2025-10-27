@@ -1,6 +1,3 @@
-# TODO: switch to an alternative that can be configured declaratively & shows as
-#       much info without looking much worse (looking at you gatus, sorry not sorry)
-# sub-TODO?: maybe just write my own?
 {
   config,
   lib,
