@@ -29,7 +29,6 @@ in {
         })
         cfg.vHosts;
     };
-    services.logrotate.enable = false; # https://github.com/elitak/nixos-infect/issues/205, for some reason?
 
     services.nginx = {
       enable = true;
