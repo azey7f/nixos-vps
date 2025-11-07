@@ -22,9 +22,6 @@ in {
       options = ["defaults" "size=${cfg.tmpfs.size}" "mode=755"];
     };
 
-    systemd.network.enable = true;
-    networking.useDHCP = false;
-
     system.stateVersion = config.system.nixos.release; # / is on tmpfs, so this should be fine
   };
 }
