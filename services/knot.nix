@@ -16,6 +16,11 @@ in {
       type = types.port;
       default = 853;
     };
+
+    zones = mkOption {
+      type = with types; listOf str;
+      default = [domain];
+    };
   };
 
   config = mkIf cfg.enable {
@@ -66,13 +71,13 @@ in {
           }
         ];
 
-        zone = [
-          {
-            inherit domain;
+        zone =
+          builtins.map (zone: {
+            domain = zone;
             master = "primary";
             acl = "allow-primary";
-          }
-        ];
+          })
+          cfg.zones;
 
         acl = [
           {
