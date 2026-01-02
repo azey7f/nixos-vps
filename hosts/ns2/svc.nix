@@ -35,6 +35,29 @@ in {
       locations."/".index = "________________none";
       locations."/.well-known/".root = "/var/lib/acme/acme-challenge/";
     };
+
+    vHosts."webdav.v4.${config.networking.domain}" = {
+      forceSSL = true;
+      useACMEHost = "webdav.v4.${config.networking.domain}";
+
+      locations."/" = {
+        proxyPass = "https://webdav.${config.networking.domain}";
+        recommendedProxySettings = false;
+        extraConfig = ''
+          proxy_set_header Host $proxy_host;
+
+          proxy_set_header        X-Real-IP $remote_addr;
+          proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
+          proxy_set_header        X-Forwarded-Proto $scheme;
+          proxy_set_header        X-Forwarded-Host $host;
+          proxy_set_header        X-Forwarded-Server $hostname;
+
+          proxy_ssl_server_name on;
+          proxy_ssl_verify on;
+          proxy_ssl_trusted_certificate /etc/ssl/certs/ca-certificates.crt;
+        '';
+      };
+    };
   };
 
   services.cron = {
