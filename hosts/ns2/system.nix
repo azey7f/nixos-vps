@@ -11,7 +11,7 @@
     ipv6.gateway = "fe80::1";
   };
   networking.hostName = "ns2";
-  networking.domain = "azey.net";
+  networking.domain = "maevi.net";
 
   users.users.root.openssh.authorizedKeys.keys = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN7OGEZGbudh9tNFvvzmBbOmbrePLbsoLWMqFjSmClmu"];
 }

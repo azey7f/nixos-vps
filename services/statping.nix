@@ -20,7 +20,7 @@ in {
       wantedBy = ["multi-user.target"];
 
       environment = {
-        NAME = "azey.net";
+        NAME = config.networking.domain;
         DESCRIPTION = "uptime stats of important services";
         DOMAIN = "https://status.${config.networking.domain}";
 

@@ -6,6 +6,7 @@
 
     zones = [
       "azey.net"
+      "maevi.net"
       "8.0.6.5.4.4.f.6.4.1.a.2.ip6.arpa"
     ];
   };
